@@ -1,0 +1,22 @@
+{
+  "name": "mt",
+  "version": "1.0.0",
+  "description": "portfolio project for TD",
+  "main": "none",
+  "scripts": {
+    "test": "none atm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "Minh Nguyen, Trang Dinh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "semantic-ui": "^2.2.6"
+  }
+}

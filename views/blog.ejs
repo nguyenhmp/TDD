@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thiwtti</title>
+    <script src="jquery/dist/jquery.js" ></script>
+    <link rel="stylesheet" href="css/semantic/dist/semantic.css" media="screen" title="no title">
+    <script type="text/javascript" src="css/semantic/dist/semantic.js"></script>
+    <link rel="stylesheet" href="css/master.css" media="screen" title="no title">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.menu .item').click(function(){
+          $(this).siblings().each(function(){
+            $(this).removeClass('active')
+          })
+          $(this).addClass('active')
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="ui secondary menu container">
+        <h1 class="ui header">TDD</h1>
+        <div class="right menu">
+          <a class="item" href="/blog">
+            Work
+          </a>
+          <a class="active item">
+            Blog
+          </a>
+          <a class="item">
+            About Me
+          </a>
+        </div>
+      </div>
+      <div class="ui three column grid container">
+        <div class="column">
+          <div class="ui bordered large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui large image">
+            <img src="images/filler_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
