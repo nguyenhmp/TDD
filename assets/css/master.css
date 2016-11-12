@@ -15,3 +15,10 @@ div.right.menu a.active.item {
   margin-top: 0px !important;
   padding-top: 5px !important;
 }
+.one.wide.column.slide-button {
+  padding-top: 15%;
+}
+button.slider-button {
+  border:none !important;
+  outline:0;
+}

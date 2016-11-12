@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/semantic/dist/semantic.css" media="screen" title="no title">
     <script type="text/javascript" src="css/semantic/dist/semantic.js"></script>
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title">
+    <link rel="stylesheet" type="text/css" href="js/slick-1.6.0/slick/slick.css"/>
     <script type="text/javascript">
       $(document).ready(function(){
         $('.menu .item').click(function(){
@@ -17,6 +18,7 @@
           // var route = $(this).text()
           // switch
         })
+        $('.ui.bordered.large.image').transition('fade right');
       })
     </script>
   </head>
@@ -36,44 +38,56 @@
           </a>
         </div>
       </div>
-      <div class="ui three column grid container">
-        <div class="column">
-          <div class="ui bordered large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
+      <div class="ui grid container">
+        <div class="one wide column slide-button">
+          <button class="slider-button"><i class='left double angle icon huge'></i></button>
+        </div>
+        <div class="fourteen wide column segment center aligned">
+          <div class="slick-carousel">
+            <div class="column segment center aligned">
+              <div class="ui image">
+                <img src="images/filler_one.jpg">
+                <div class="ui center aligned segment photo-label">Testing</div>
+              </div>
+            </div>
+            <div class="column segment center aligned">
+              <div class="ui image">
+                <img src="images/filler_one.jpg">
+                <div class="ui center aligned segment photo-label">Testing</div>
+              </div>
+            </div>
+            <div class="column segment center aligned">
+              <div class="ui image">
+                <img src="images/filler_one.jpg">
+                <div class="ui center aligned segment photo-label">Testing</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
+        <div class="one wide column slide-button">
+          <button class="slider-button"><i class='right double angle icon huge'></i></button>
         </div>
       </div>
     </div>
   </body>
+  <script type="text/javascript" src="js/slick-1.6.0/slick/slick.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slick-carousel').slick({
+        slidesToShow:1,
+        nextArrow: `<button type='button' class='ui right labeled icon button slick-next'>
+                      <i class='angle left icon'></i>
+                      Next
+                    </button>`,
+        prevArrow: `<button type='button' class='ui right labeled icon button slick-next'>
+                      <i class='angle right icon'></i>
+                      previous
+                    </button>`
+      });
+      $('slider-button').click(function(e){
+        $(this).css('border', "none")
+        e.preventDefault()
+      })
+    })
+  </script>
 </html>
