@@ -1,77 +1,73 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Thiwtti</title>
-    <script src="jquery/dist/jquery.js" ></script>
-    <link rel="stylesheet" href="css/semantic/dist/semantic.css" media="screen" title="no title">
-    <script type="text/javascript" src="css/semantic/dist/semantic.js"></script>
-    <link rel="stylesheet" href="css/master.css" media="screen" title="no title">
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.menu .item').click(function(){
-          $(this).siblings().each(function(){
-            $(this).removeClass('active')
-          })
-          $(this).addClass('active')
-        })
-      })
-    </script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="ui secondary menu container">
-        <h1 class="ui header">TDD</h1>
-        <div class="right menu">
-          <a class="item" href="/blog">
-            Work
-          </a>
-          <a class="active item">
-            Blog
-          </a>
-          <a class="item">
-            About Me
-          </a>
+<div class="main ui container basic segment blog-page main-content" id="blog-page">
+  <div class="ui dividing right rail top-margin">
+    <div class="ui sticky">
+      <h1 class="ui dividing header">Latest Post</h1>
+      <div class="ui divided items">
+        <div class="item">
+          <i class="sticky note outline icon big"></i>
+          <div class="middle aligned content">
+            <h2 class="ui header">FAMILY</h2>
+            <div class="meta">11/11/2016</div>
+          </div>
         </div>
+        <div class="item">
+          <i class="sticky note outline icon big"></i>
+          <div class="middle aligned content">
+            <h2 class="ui header">KOREA</h2>
+            <div class="meta">7/11/2016</div>
+          </div>
+        </div>
+     </div>
+    </div>
+  </div>
+  <div class="ui segment">
+    <div class="ui segment center aligned zero-bot-margin">
+      <div class="ui image huge">
+        <img src="images/blog_family.jpg">
       </div>
-      <div class="ui three column grid container">
-        <div class="column">
-          <div class="ui bordered large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui large image">
-            <img src="images/filler_one.jpg">
-            <div class="ui center aligned segment photo-label">Testing</div>
-          </div>
-        </div>
+      <h1 class="ui header photo-label zero-bot-margin">FAMILY</h1>
+      <h4 class="ui header photo-label zero-bot-margin">11/11/2016</h4>
+    </div>
+    <div  class="ui grid container">
+      <div  class="ui eight wide column container">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="ui eight wide column container">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+  <div class="ui segment">
+    <div class="ui segment center aligned">
+      <div class="ui image huge large">
+        <img src="images/blog_korea.jpg">
+      </div>
+    </div>
+    <div  class="ui grid container">
+      <div class="ui sixteen wide column center aligned">
+        <h1 class="ui header photo-label zero-bot-margin">KOREA</h1>
+        <h4 class="ui header photo-label zero-bot-margin">7/11/2015</h4>
+      </div>
+      <div  class="ui eight wide column container">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="ui eight wide column container">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$('.ui.sticky').sticky({
+  context: '#blog-page',
+  pushing: "true"
+});
+</script>

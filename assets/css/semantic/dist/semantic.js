@@ -16868,10 +16868,10 @@ $.fn.sticky = function(parameters) {
                   module.debug('Fixed element reached top of container');
                   module.setInitialPosition();
                 }
-                else if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
-                  module.debug('Fixed element reached bottom of container');
-                  module.bindBottom();
-                }
+                // else if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
+                //   module.debug('Fixed element reached bottom of container');
+                //   module.bindBottom();
+                // }
                 // scroll element if larger than screen
                 else if(doesntFit) {
                   module.set.scroll(elementScroll);

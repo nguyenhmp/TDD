@@ -10,15 +10,62 @@
     <link rel="stylesheet" type="text/css" href="js/slick-1.6.0/slick/slick.css"/>
     <script type="text/javascript">
       $(document).ready(function(){
-        $('.menu .item').click(function(){
+        $(document).on('click', '.menu .item', function(){
+          var current_active = $('.active').text()
           $(this).siblings().each(function(){
             $(this).removeClass('active')
           })
           $(this).addClass('active')
-          // var route = $(this).text()
-          // switch
+          var route = $(this).text()
+          console.log("current", current_active)
+          console.log(route)
+          switch (route){
+            case "Work":
+              if(current_active != "Work" && $('.main-content.work-page').length == 0){
+                $.ajax({
+                  url: '/work',
+                  success: function(resHTML){
+                    $('.wrapper').fadeOut(function(){
+                      $('.wrapper').html(resHTML);
+                      $('.wrapper').fadeIn();
+                    });
+                  },
+                  dataType: 'html',
+                  method:"get"
+                });
+              }else if(current_active != "Work"){
+                console.log("in here")
+                $('.main-content').not(".work-page").fadeOut(function(){
+                  $('.main-content.work-page').fadeIn()
+                })
+              }
+              break;
+            case "Blog":
+              if(current_active != "Blog" && $('.main-content.blog-page').length == 0){
+                console.log("here")
+                $.ajax({
+                  url: '/blog',
+                  success: function(resHTML){
+                    console.log(resHTML)
+                    $('.main-content.work-page').fadeOut(function(){
+                      $('.wrapper').append(resHTML);
+                      $('.main-content.blog-page').hide();
+                      $('.main-content.blog-page').fadeIn();
+                    });
+                  },
+                  dataType: 'html',
+                  method:"get"
+                });
+              } else if(current_active != "Blog") {
+                $('.main-content').not(".blog-page").fadeOut(function(){
+                  $('.main-content.blog-page').fadeIn()
+                })
+              }
+              break
+            default:
+              console.log("nothing")
+          }
         })
-        $('.ui.bordered.large.image').transition('fade right');
       })
     </script>
   </head>
@@ -27,19 +74,13 @@
       <div class="ui secondary menu container">
         <h1 class="ui header">TDD</h1>
         <div class="right menu">
-          <a class="active item" href="/blog">
-            Work
-          </a>
-          <a class="item">
-            Blog
-          </a>
-          <a class="item">
-            About Me
-          </a>
+          <a class="active item" href="#Work">Work</a>
+          <a class="item" href="#Blog">Blog</a>
+          <a class="item">About Me</a>
         </div>
       </div>
-      <div class="ui grid container">
-        <div class="one wide column slide-button">
+      <div class="main-content work-page ui grid container">
+        <div class="one wide column slider-button back-button">
           <button class="slider-button"><i class='left double angle icon huge'></i></button>
         </div>
         <div class="fourteen wide column segment center aligned">
@@ -64,7 +105,7 @@
             </div>
           </div>
         </div>
-        <div class="one wide column slide-button">
+        <div class="one wide column slider-button forward-button">
           <button class="slider-button"><i class='right double angle icon huge'></i></button>
         </div>
       </div>
@@ -82,11 +123,20 @@
         prevArrow: `<button type='button' class='ui right labeled icon button slick-next'>
                       <i class='angle right icon'></i>
                       previous
-                    </button>`
+                    </button>`,
+        arrows: false
       });
-      $('slider-button').click(function(e){
-        $(this).css('border', "none")
-        e.preventDefault()
+      $('.slider-button.forward-button').click(function(e){
+        $('.slick-carousel').slick('slickNext')
+      })
+      $('.slider-button.back-button').click(function(e){
+        $('.slick-carousel').slick('slickPrev')
+      })
+      $('button.slider-button').on('mousedown', function(){
+        $(this).css('background', 'none')
+      })
+      $('button.slider-button').on('mouseup', function(){
+        $(this).css('background', '#e0e1e2')
       })
     })
   </script>

@@ -15,10 +15,28 @@ div.right.menu a.active.item {
   margin-top: 0px !important;
   padding-top: 5px !important;
 }
-.one.wide.column.slide-button {
-  padding-top: 15%;
+.one.wide.column.slider-button {
+  padding-top: 13%;
 }
 button.slider-button {
   border:none !important;
   outline:0;
+  background:none;
+  border-radius: 10px;
+}
+button.slider-button:hover{
+  background: #e0e1e2;
+}
+.main-content {
+  margin-top: 5% !important;
+}
+.main-blog-container {
+  border:none !important;
+  box-shadow: none !important;
+}
+.zero-bot-margin {
+  margin-bottom: 0px !important;
+}
+.ui.fixed.sticky, .top-margin{
+  margin-top:2.5% !important;
 }
