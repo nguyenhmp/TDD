@@ -12,15 +12,19 @@ app.get('/', function(req, res){
   res.render("index.ejs");
 })
 
-app.get('/work', function(req, res){
+app.post('/work', function(req, res){
   res.render('work.ejs')
 })
 
-app.get('/blog', function(req, res){
+app.post('/blog', function(req, res){
   console.log("got here")
   res.render('blog.ejs')
 })
 app.get('/blogs', function(req, res){
+})
+app.post('/me', function(req, res){
+  res.render('me.ejs')
+
 })
 app.listen(8000, function(){
   console.log("listening on port 8000")

@@ -12,13 +12,12 @@
       $(document).ready(function(){
         $(document).on('click', '.menu .item', function(){
           var current_active = $('.active').text()
+          console.log(current_active)
           $(this).siblings().each(function(){
             $(this).removeClass('active')
           })
           $(this).addClass('active')
           var route = $(this).text()
-          console.log("current", current_active)
-          console.log(route)
           switch (route){
             case "Work":
               if(current_active != "Work" && $('.main-content.work-page').length == 0){
@@ -31,7 +30,7 @@
                     });
                   },
                   dataType: 'html',
-                  method:"get"
+                  method:"post"
                 });
               }else if(current_active != "Work"){
                 console.log("in here")
@@ -46,7 +45,6 @@
                 $.ajax({
                   url: '/blog',
                   success: function(resHTML){
-                    console.log(resHTML)
                     $('.main-content.work-page').fadeOut(function(){
                       $('.wrapper').append(resHTML);
                       $('.main-content.blog-page').hide();
@@ -54,14 +52,37 @@
                     });
                   },
                   dataType: 'html',
-                  method:"get"
+                  method:"post"
                 });
               } else if(current_active != "Blog") {
                 $('.main-content').not(".blog-page").fadeOut(function(){
                   $('.main-content.blog-page').fadeIn()
                 })
               }
-              break
+              break;
+            case "About Me":
+              console.log("in about me")
+              if(current_active != "About Me" && $('.main-content.me-page').length == 0){
+                $.ajax({
+                  url: '/me',
+                  success: function(resHTML){
+                    console.log(resHTML)
+                    $('.main-content').fadeOut(function(){
+                      $('.wrapper').append(resHTML);
+                      $('.main-content.me-page').hide();
+                      $('.main-content.me-page').fadeIn();
+                    });
+                  },
+                  dataType: 'html',
+                  method:"post"
+                });
+              }else if(current_active != "About Me"){
+                console.log("in here")
+                $('.main-content').not(".me-page").fadeOut(function(){
+                  $('.main-content.me-page').fadeIn()
+                })
+              }
+              break;
             default:
               console.log("nothing")
           }
