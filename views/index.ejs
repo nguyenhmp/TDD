@@ -76,37 +76,47 @@
         <div class="right menu">
           <a class="active item" href="#Work">Work</a>
           <a class="item" href="#Blog">Blog</a>
-          <a class="item">About Me</a>
+          <a class="item" href="#Me">About Me</a>
         </div>
       </div>
-      <div class="main-content work-page ui grid container">
-        <div class="one wide column slider-button back-button">
-          <button class="slider-button"><i class='left double angle icon huge'></i></button>
+      <div class="main-content work-page ui segment basic grid container">
+        <div class="ui left rail slider-button back-button">
+          <div class="ui right aligned basic segment">
+            <i class='circular inverted left double angle icon huge'></i>
+          </div>
         </div>
-        <div class="fourteen wide column segment center aligned">
+        <div class="sixteen wide column segment center aligned">
           <div class="slick-carousel">
             <div class="column segment center aligned">
-              <div class="ui image">
+              <div class="ui image large hoverable segment">
                 <img src="images/filler_one.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
-              <div class="ui image">
+              <div class="ui image large hoverable segment">
                 <img src="images/filler_one.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
-              <div class="ui image">
+              <div class="ui image large hoverable segment">
+                <img src="images/filler_one.jpg">
+                <div class="ui center aligned segment photo-label">Testing</div>
+              </div>
+            </div>
+            <div class="column segment center segment aligned">
+              <div class="ui image large hoverable segment">
                 <img src="images/filler_one.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="one wide column slider-button forward-button">
-          <button class="slider-button"><i class='right double angle icon huge'></i></button>
+        <div class="ui right rail slider-button forward-button">
+          <div class="ui basic segment">
+            <i class='circular inverted right double angle icon huge'></i>
+          </div>
         </div>
       </div>
     </div>
@@ -115,7 +125,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.slick-carousel').slick({
-        slidesToShow:1,
+        slidesToShow: 3,
         nextArrow: `<button type='button' class='ui right labeled icon button slick-next'>
                       <i class='angle left icon'></i>
                       Next
@@ -126,8 +136,13 @@
                     </button>`,
         arrows: false
       });
-      $('.slider-button.forward-button').click(function(e){
+      $('i.right.double').click(function(e){
         $('.slick-carousel').slick('slickNext')
+      })
+      $('i').hover(function(){
+        $(this).removeClass("inverted")
+      }, function(){
+        $(this).addClass("inverted")
       })
       $('.slider-button.back-button').click(function(e){
         $('.slick-carousel').slick('slickPrev')
