@@ -1,3 +1,7 @@
+*{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: grey;
+}
 .ui.center.aligned.segment {
   border: none;
   box-shadow: none;
@@ -10,6 +14,7 @@ div.right.menu a.active.item {
   background:none !important;
   border-bottom: 1px solid black !important;
   text-emphasis: bold !important;
+  border-radius: 0 !important;
 }
 .photo-label {
   margin-top: 0px !important;
@@ -57,4 +62,13 @@ margin: 0 -15px;
 }
 .large.text {
    font-size: 2rem;
+}
+.medium.text {
+  font-size: 1.5rem;
+}
+.logo.text{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: normal;
+  font-size: 3.5rem !important;
+  margin:0px;
 }

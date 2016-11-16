@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <title>Thiwtti</title>
     <script src="jquery/dist/jquery.js" ></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="css/semantic/dist/semantic.css" media="screen" title="no title">
     <script type="text/javascript" src="css/semantic/dist/semantic.js"></script>
     <link rel="stylesheet" href="css/master.css" media="screen" title="no title">
     <link rel="stylesheet" type="text/css" href="js/slick-1.6.0/slick/slick.css"/>
     <script type="text/javascript">
       $(document).ready(function(){
+        var work = true;
+        var blogged = false;
+        var me = false;
         $(document).on('click', '.menu .item', function(){
           var current_active = $('.active').text()
           console.log(current_active)
@@ -20,7 +24,7 @@
           var route = $(this).text()
           switch (route){
             case "Work":
-              if(current_active != "Work" && $('.main-content.work-page').length == 0){
+              if(current_active != "Work" && !work){
                 $.ajax({
                   url: '/work',
                   success: function(resHTML){
@@ -34,21 +38,24 @@
                 });
               }else if(current_active != "Work"){
                 console.log("in here")
-                $('.main-content').not(".work-page").fadeOut(function(){
+                $('.main-content').fadeOut(function(){
                   $('.main-content.work-page').fadeIn()
                 })
               }
               break;
             case "Blog":
-              if(current_active != "Blog" && $('.main-content.blog-page').length == 0){
-                console.log("here")
+              if(current_active != "Blog" && !blogged){
+                console.log("inside get blog")
                 $.ajax({
                   url: '/blog',
                   success: function(resHTML){
-                    $('.main-content.work-page').fadeOut(function(){
-                      $('.wrapper').append(resHTML);
-                      $('.main-content.blog-page').hide();
-                      $('.main-content.blog-page').fadeIn();
+                    $('.main-content').fadeOut(function(){
+                      if(!blogged){
+                        blogged = true;
+                        $('.wrapper').append(resHTML);
+                        $('.main-content.blog-page').hide();
+                        $('.main-content.blog-page').fadeIn();
+                      };
                     });
                   },
                   dataType: 'html',
@@ -62,15 +69,19 @@
               break;
             case "About Me":
               console.log("in about me")
-              if(current_active != "About Me" && $('.main-content.me-page').length == 0){
+              if(current_active != "About Me" && !me){
                 $.ajax({
                   url: '/me',
                   success: function(resHTML){
+                    console.log("tyoodooafos")
                     console.log(resHTML)
                     $('.main-content').fadeOut(function(){
-                      $('.wrapper').append(resHTML);
-                      $('.main-content.me-page').hide();
-                      $('.main-content.me-page').fadeIn();
+                      if(!me){
+                        me = true;
+                        $('.wrapper').append(resHTML);
+                        $('.main-content.me-page').hide();
+                        $('.main-content.me-page').fadeIn();
+                      }
                     });
                   },
                   dataType: 'html',
@@ -85,7 +96,15 @@
               break;
             default:
               console.log("nothing")
+              break;
           }
+        })
+        $('.ui.image.large.hoverable.segment img').click(function(){
+          var that = this;
+          $('.presentation img').fadeOut(function(){
+            $(this).attr('src', $(that).attr('src'));
+            $(this).fadeIn();
+          })
         })
       })
     </script>
@@ -93,42 +112,42 @@
   <body>
     <div class="wrapper">
       <div class="ui secondary menu container">
-        <h1 class="ui header">TDD</h1>
+          <h1 class="ui header logo text">TDD</h1>
         <div class="right menu">
-          <a class="active item" href="#Work">Work</a>
-          <a class="item" href="#Blog">Blog</a>
-          <a class="item" href="#Me">About Me</a>
+          <a class="active item medium text" href="#Work">Work</a>
+          <a class="item medium text" href="#Blog">Blog</a>
+          <a class="item medium text" href="#Me">About Me</a>
         </div>
       </div>
       <div class="main-content work-page ui segment basic grid container">
         <div class="ui left rail slider-button back-button">
           <div class="ui right aligned basic segment">
-            <i class='circular inverted left double angle icon huge'></i>
+            <i class='circular inverted left double angle icon big'></i>
           </div>
         </div>
         <div class="sixteen wide column segment center aligned">
           <div class="slick-carousel">
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
-                <img src="images/filler_one.jpg">
+                <img src="images/work_one.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
-                <img src="images/filler_one.jpg">
+                <img src="images/work_two.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
-                <img src="images/filler_one.jpg">
+                <img src="images/work_three.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
             <div class="column segment center segment aligned">
               <div class="ui image large hoverable segment">
-                <img src="images/filler_one.jpg">
+                <img src="images/work_four.jpg">
                 <div class="ui center aligned segment photo-label">Testing</div>
               </div>
             </div>
@@ -136,7 +155,13 @@
         </div>
         <div class="ui right rail slider-button forward-button">
           <div class="ui basic segment">
-            <i class='circular inverted right double angle icon huge'></i>
+            <i class='circular inverted right double angle icon big'></i>
+          </div>
+        </div>
+        <div class="ui segment container center aligned presentation">
+          <div class="ui image hoverable segment">
+            <img src="images/work_one.jpg">
+            <div class="ui center aligned segment photo-label">Testing</div>
           </div>
         </div>
       </div>
@@ -147,15 +172,8 @@
     $(document).ready(function(){
       $('.slick-carousel').slick({
         slidesToShow: 3,
-        nextArrow: `<button type='button' class='ui right labeled icon button slick-next'>
-                      <i class='angle left icon'></i>
-                      Next
-                    </button>`,
-        prevArrow: `<button type='button' class='ui right labeled icon button slick-next'>
-                      <i class='angle right icon'></i>
-                      previous
-                    </button>`,
-        arrows: false
+        arrows: false,
+        variableWidth:true
       });
       $('i.right.double').click(function(e){
         $('.slick-carousel').slick('slickNext')
