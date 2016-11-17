@@ -99,12 +99,20 @@
               break;
           }
         })
-        $('.ui.image.large.hoverable.segment img').click(function(){
+        $('.ui.image.large.hoverable.segment').hover(function(){
           var that = this;
-          $('.presentation img').fadeOut(function(){
-            $(this).attr('src', $(that).attr('src'));
-            $(this).fadeIn();
-          })
+          var img = $(this).find('img')
+          var presentation = $('.presentation img')
+          if (presentation.attr('src') == img.attr('src')){
+            return
+          }else{
+            $('.presentation img').fadeOut(function(){
+              $(this).attr('src', img.attr('src'));
+              $(this).fadeIn();
+            })
+          }
+        }, function(){
+          return
         })
       })
     </script>
@@ -130,25 +138,25 @@
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
                 <img src="images/work_one.jpg">
-                <div class="ui center aligned segment photo-label">Testing</div>
+                <div class="ui center aligned segment photo-label medium text">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
                 <img src="images/work_two.jpg">
-                <div class="ui center aligned segment photo-label">Testing</div>
+                <div class="ui center aligned segment photo-label medium text">Testing</div>
               </div>
             </div>
             <div class="column segment center aligned">
               <div class="ui image large hoverable segment">
                 <img src="images/work_three.jpg">
-                <div class="ui center aligned segment photo-label">Testing</div>
+                <div class="ui center aligned segment photo-label medium text">Testing</div>
               </div>
             </div>
             <div class="column segment center segment aligned">
               <div class="ui image large hoverable segment">
                 <img src="images/work_four.jpg">
-                <div class="ui center aligned segment photo-label">Testing</div>
+                <div class="ui center aligned segment photo-label medium text">Testing</div>
               </div>
             </div>
           </div>
